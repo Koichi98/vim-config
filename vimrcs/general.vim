@@ -12,7 +12,7 @@
 "    -> Editing mappings
 "    -> Parenthesis/bracket
 "    -> vimgrep searching and cope displaying
-"    -> Spell checking
+"   -> Spell checking
 "    -> Misc
 "    -> Helper functions
 "    -> Copy and Pasting
@@ -396,6 +396,9 @@ endif
 " inoremap $q ''<esc>i
 " inoremap $e ""<esc>i
 
+ inoremap { {}<LEFT>
+ inoremap {<Enter> {}<Left><CR><ESC><S-o>
+ inoremap ( ()<LEFT>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
