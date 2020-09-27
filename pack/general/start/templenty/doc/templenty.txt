@@ -1,0 +1,67 @@
+*templenty.txt*
+
+        The Templates Manager for Vim~
+
+templenty                      *template* *templenty*
+
+1. Introduction                 |templenty-introduction|
+2. Installation                 |templenty-install|
+3. Usage                        |templenty-usage|
+4. Configuration                |templenty-configuration|
+
+==============================================================================
+1. Introduction                                       *templenty-introduction*
+
+This is a simple plugin that provides template management for the Vim editor.
+A template is stored by its filetype in certain directories and is read in
+creating new buffers. Templenty allows you to customize the template as you
+want, which is saved out of this plugin.
+
+==============================================================================
+2. Installation                                            *templenty-install*
+
+In Vim 8 or NeoVim, it is easy to install plugins with Vim built-in package
+manager. Clone this repo into one of your package directories. >
+
+        $ cd ~/.vim/pack/foo/start
+        $ git clone https://gitlab.com/tatsuya_rf46/templenty.vim.git
+
+The name "foo" is arbitrary. Details in ':help package'.
+
+==============================================================================
+3. Usage                                                     *templenty-usage*
+
+Once you add templenty, the default templates will be loaded depending on its
+filetype when you create a buffer. If you want to customize the template,
+issue the following command. >
+    :TemplentyEdit
+This opens the new buffer of the old template. You can edit this file and
+re-load the template by >
+    :TemplentyLoad
+
+The new template is stored in the special directory out of this plugin
+directory (default: $HOME/.vim/templenty), which has priority to the default
+templates.
+
+==============================================================================
+4. Configuration                                     *templenty-configuration*
+
+The following variables can be used to change the behavior of templates.
+
+g:templenty_autoload                                    *g:templenty_autoload*
+                If set to one, no template is loaded without issuing
+                'TemplentyLoad'.
+
+g:templenty_custom_dir                                *g:templenty_custom_dir*
+                Not set in default. You can select the path in which
+                customized templates are saved by setting this variable in your
+                ~/.vimrc file.
+                ex) let g:templenty_custom_dir = "$HOME/.vim/source/templenty"
+
+g:templenty_edit_mode                                  *g:templenty_edit_mode*
+                This variable controls how the template file is read when you
+                issue 'TemplentyEdit'.
+                "vertical" (default) : Vertical Split Mode.
+                "horizontal"         : Horizontal Split Mode.
+                "edit"               : Edit Mode.
+                Specify this in your ~/.vimrc file.
